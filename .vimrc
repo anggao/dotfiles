@@ -1,8 +1,8 @@
 " https://github.com/benmccormick/dotfiles/blob/master/vim/vimrc.symlink
 "
 " Original Author:	 Ben McCormick
-" Modified by :          Ang Gao <anggao@me.com>
-" Last change:	         2015 Jan 12
+" Modified by :      Ang Gao <anggao@me.com>
+" Last change:	     2015 Jan 12
 "
 "  If you don't understand a setting in here, just type ':h setting'.
 
@@ -38,9 +38,8 @@ Plugin 'gmarik/vundle'
 "My plugins
 
 " Themes
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'chriskempson/base16-vim'
-Plugin 'reedes/vim-colors-pencil'
+Plugin 'flazz/vim-colorschemes'
 
 " Syntax
 Plugin 'skammer/vim-css-color'
@@ -69,7 +68,9 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'Raimondi/delimitMate'
 "Vim front for ag, the code searching tool similar to ack, with a focus on speed.
 Plugin 'rking/ag.vim'
-
+"Session Management with Vim
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-session'
 
 " ### Use sometimes
 
@@ -100,6 +101,8 @@ Plugin 'reedes/vim-thematic'
 
 
 " Not Using anymore/right now
+" Plugin 'reedes/vim-colors-pencil'
+" Plugin 'altercation/vim-colors-solarized'
 
 
 "End Vundle
@@ -119,8 +122,8 @@ syntax enable
 set t_Co=256
 " Use base-16 for the color scheme, different themes in GUI and terminal
 if has('gui_running')
-    colorscheme pencil
-    set background=light
+    colorscheme base16-pop
+    set background=dark
 else
     let base16colorspace=256  " Access colors present in 256 colorspace
 "    colorscheme base16-eighties
@@ -128,7 +131,7 @@ else
     set background=dark
 endif
 "Use Source Code Pro for the font
-set guifont=Source\ Code\ Pro\ For\ Powerline:h16
+set guifont=Source\ Code\ Pro\ For\ Powerline:h13
 set noshowmode                                  " Let airline handle the mode display
 
 " General Config
@@ -181,7 +184,7 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 " Persistent Undo
 " ===============
 
-" Keep undo history across sessions, by storing in file
+" Keep undo history across essions, by storing in file
 " Only works in MacVim (gui) mode
 if has('gui_running')
   set undodir=~/.vim/backups
@@ -330,6 +333,16 @@ if executable('ag')
   " let g:ctrlp_use_caching = 0
 endif
 
+" Session management
+let g:session_directory = "~/.vim/session"
+let g:session_autoload = "no"
+let g:session_autosave = "no"
+let g:session_command_aliases = 1
+nnoremap <leader>so :OpenSession 
+nnoremap <leader>ss :SaveSession 
+nnoremap <leader>sd :DeleteSession<CR>
+nnoremap <leader>sc :CloseSession<CR>
+
 
 "pencil
 augroup pencil
@@ -351,3 +364,5 @@ nnoremap <silent> <leader>pt :TogglePencil<cr>
 let g:vim_markdown_folding_disabled=1
 
 let g:pencil#wrapModeDefault = 'hard'   " or 'soft'
+
+
