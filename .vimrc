@@ -278,6 +278,7 @@ let NERDTreeHijackNetrw=1 "Put Nerdtree into a window
 
 "YouCompleteMe options
 let g:ycm_min_num_of_chars_for_completion=3
+let g:ycm_path_to_python_interpreter = '/usr/bin/python'
 
 "jinja config
 au BufNewFile,BufRead *.html,*.htm,*.shtml,*.stm set ft=jinja
