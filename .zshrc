@@ -24,5 +24,5 @@ fi
 
 # Load virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
-export PROJECT_HOME=~/Projects
+export PROJECT_HOME=~/git_repos
 export WORKON_HOME=~/Virtualenvs
