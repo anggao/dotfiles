@@ -26,3 +26,6 @@ fi
 source /usr/local/bin/virtualenvwrapper.sh
 export PROJECT_HOME=~/git_repos
 export WORKON_HOME=~/Virtualenvs
+
+# Golang
+export GOPATH=/Users/anggao/Go/Development
