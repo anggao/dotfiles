@@ -1,10 +1,10 @@
 " https://github.com/benmccormick/dotfiles/blob/master/vim/vimrc.symlink
 "
-" Original Author:	 Ben McCormick
+" Original Author:   Ben McCormick
 " Modified by :      Ang Gao <anggao@me.com>
-" Last change:	     2015 Jan 12
+" Last change:       2015 April 28
 "
-"  If you don't understand a setting in here, just type ':h setting'.
+" If you don't understand a setting in here, just type ':h setting'.
 
 " Ang's vimrc
 
@@ -15,10 +15,9 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" Shell stuff here
-
 " Set shell to zsh (fish and VIM don't play well together)
 set shell=zsh
+
 "Don't dump distracting text to terminal during searches!
 set shellpipe=2>/dev/null>
 
@@ -33,21 +32,20 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-"My plugins
+" My plugins
+" =============
 
 " Themes
 Plugin 'chriskempson/base16-vim'
-Plugin 'flazz/vim-colorschemes'
 
 " Syntax
-Plugin 'skammer/vim-css-color'
+Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'elzr/vim-json'
 Plugin 'lepture/vim-jinja'
-
 
 " Functionality
 
@@ -99,19 +97,17 @@ Plugin 'reedes/vim-thematic'
 "Plugin 'SirVer/ultisnips'
 "Plugin 'tpope/vim-unimpaired'
 
-
 " Not Using anymore/right now
 " Plugin 'reedes/vim-colors-pencil'
 " Plugin 'altercation/vim-colors-solarized'
 
-
 "End Vundle
 call vundle#end()
+
 "Vundle ended so reenable filetypes
 filetype plugin indent on
 "Pull in matchit.vim, which is already bundled with Vim
 runtime! macros/matchit.vim
-
 
 " Appearance
 " ==========
@@ -211,7 +207,6 @@ set nowrap                            " Don't wrap lines
 au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline 
 set cursorline 
-
 
 
 " Folds
@@ -367,4 +362,8 @@ let g:vim_markdown_folding_disabled=1
 
 let g:pencil#wrapModeDefault = 'hard'   " or 'soft'
 
+"Share copy-paste clipboard between osx
+set clipboard=unnamed
 
+" vim-javascript-syntax
+au FileType javascript call JavaScriptFold()
