@@ -39,6 +39,8 @@ Plugin 'gmarik/Vundle.vim'
 
 " Themes
 Plugin 'chriskempson/base16-vim'
+Plugin 'mhinz/vim-startify'
+Plugin 'mklabs/vim-cowsay'
 
 " Syntax
 Plugin 'godlygeek/tabular'
@@ -129,6 +131,16 @@ endif
 "Use Source Code Pro for the font
 set guifont=Source\ Code\ Pro\ For\ Powerline:h13
 set noshowmode                                  " Let airline handle the mode display
+
+"Startify config
+let s:mac = has('mac')
+function! s:center_header(lines) abort
+  let longest_line   = max(map(copy(a:lines), 'len(v:val)'))
+  let centered_lines = map(copy(a:lines), 'repeat(" ", (&columns / 2) - (longest_line / 2)) . v:val')
+  return centered_lines
+endfunction
+let g:startify_custom_header = s:center_header(split(system('tips | '. (s:mac ? 'cowthink Hi Ang' : 'cowsay Hi Ang')), '\n'))
+let g:startify_custom_footer = ['', "   Vim is charityware. Please read ':help uganda'.", '']
 
 " General Config
 " ==============

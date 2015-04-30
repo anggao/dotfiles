@@ -84,5 +84,8 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 export PATH=$JAVA_HOME/bin:$PATH
 export PGDATA=/Users/anggao/pg-data
 
+# teamocil autocompletion (for tmux)
+compctl -g '~/.teamocil/*(:t:r)' teamocil
+
 # secret alias 
 source /Users/anggao/.alias
