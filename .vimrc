@@ -41,13 +41,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'mhinz/vim-startify'
 Plugin 'mklabs/vim-cowsay'
+Plugin 'trusktr/seti.vim'
 
 " Syntax
 Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 Plugin 'jelera/vim-javascript-syntax'
-Plugin 'elzr/vim-json'
-Plugin 'lepture/vim-jinja'
 
 " Functionality
 
@@ -83,21 +81,26 @@ Plugin 'tpope/vim-surround'
 " Allows vim-surround to be used with . command
 Plugin 'tpope/vim-repeat'
 "Gives smart completions for Javascript
-Plugin 'marijnh/tern_for_vim'
+" Plugin 'marijnh/tern_for_vim'
 " Provides easy shortcuts for commenting out lines
 Plugin 'scrooloose/nerdcommenter'
-" Great helpful autocompletion
-Plugin 'Valloric/YouCompleteMe'
-"Adds convenience stuff for writers
-Plugin 'reedes/vim-pencil'
 " Allows for different situational Vim themes
 Plugin 'reedes/vim-thematic'
-
+" Provides support for expanding abbreviations similar to emmet.
+Plugin 'mattn/emmet-vim'
 
 " Experimenting with these
 
 "Plugin 'SirVer/ultisnips'
 "Plugin 'tpope/vim-unimpaired'
+" Great helpful autocompletion
+"Plugin 'Valloric/YouCompleteMe'
+"Adds convenience stuff for writers
+" Plugin 'reedes/vim-pencil'
+"
+"Plugin 'elzr/vim-json'
+"Plugin 'lepture/vim-jinja'
+
 
 " Not Using anymore/right now
 " Plugin 'reedes/vim-colors-pencil'
@@ -120,8 +123,7 @@ syntax enable
 set t_Co=256
 " Use base-16 for the color scheme, different themes in GUI and terminal
 if has('gui_running')
-    colorscheme base16-pop
-    set background=dark
+    colorscheme seti
 else
     let base16colorspace=256  " Access colors present in 256 colorspace
 "    colorscheme base16-eighties
@@ -256,6 +258,11 @@ map K i<Enter><Esc>
 "\rr => refresh vimrc
 map <leader>rr :source ~/.vimrc<CR>
 
+" Quick switching buffers
+map gn :bn<cr>
+map gp :bp<cr>
+map gd :bd<cr>
+
 
 " Plugin Options
 " ==============
@@ -272,9 +279,6 @@ let g:ctrlp_working_path_mode = 0
 " Airline options
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-
-"Markdown options
-let g:vim_markdown_folding_disabled=1
 
 "NerdTree Options
 " Toggle nerdtree with F10
@@ -308,15 +312,7 @@ let g:thematic#themes = {
 \                  'background': 'dark',
 \                  'font-size': 12,
 \                  'transparency': 0
-\                },
-\ 'pencil_lite' :{ 'colorscheme': 'pencil',
-\                  'background': 'light',
-\                  'ruler': 1,
-\                  'typeface': 'Source Code Pro Light',
-\                  'fullscreen': 0,
-\                  'transparency': 0,
-\                  'linespace': 6,
-\                },
+\                }
 \ }
 
 "ag
@@ -352,27 +348,7 @@ nnoremap <leader>ss :SaveSession
 nnoremap <leader>sd :DeleteSession<CR>
 nnoremap <leader>sc :CloseSession<CR>
 
-
-"pencil
-augroup pencil
-  autocmd!
-  autocmd FileType markdown,mkd call pencil#init({'wrap': 'soft'})
-  autocmd FileType text call pencil#init({'wrap': 'hard'})
-augroup END
-
-
-nnoremap <silent> <leader>ps :SoftPencil<cr>
-nnoremap <silent> <leader>ph :HardPencil<cr>
-nnoremap <silent> <leader>pn :NoPencil<cr>
-nnoremap <silent> <leader>pt :TogglePencil<cr>
-
 "Syntax Specific
-
-
-"Markdown options
-let g:vim_markdown_folding_disabled=1
-
-let g:pencil#wrapModeDefault = 'hard'   " or 'soft'
 
 "Share copy-paste clipboard between osx
 set clipboard=unnamed

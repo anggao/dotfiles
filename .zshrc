@@ -29,3 +29,15 @@ export WORKON_HOME=~/Virtualenvs
 
 # Golang
 export GOPATH=/Users/anggao/Go/Development
+export PATH=$PATH:$GOPATH/bin
+
+# Andriod
+export PATH=$PATH:~/Andriod/platform-tools
+
+# ANM
+export RSTOP=~/TR/rio/redshift
+export AZKABAN_WEB_HOME=~/azkaban/azkaban-web-server-2.6.0-SNAPSHOT
+export AZKABAN_EXEC_HOME=~/azkaban/azkaban-exec-server-2.6.0-SNAPSHOT
+export PATH=$PATH:$RSTOP/bin/
+export PATH=$PATH:$RSTOP/azkaban/projects/common/
+export AZKABAN_JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_76.jdk/Contents/Home
