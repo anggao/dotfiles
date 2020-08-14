@@ -123,11 +123,3 @@ bindkey -M vicmd 'j' history-substring-search-down
 # }}} End configuration added by Zim install
 
 
-# Source files
-# source ~/.config/zsh/aliases.zsh
-# source ~/.config/zsh/plugins.zsh
-# source ~/.config/zsh/vi.zsh
-# source ~/.config/zsh/env.zsh
-# source ~/.config/zsh/tmux.zsh
-# source ~/.config/zsh/fzf.zsh
-# source ~/.config/zsh/mappings.zsh
