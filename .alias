@@ -1,5 +1,8 @@
 alias k=kubectl
 
-alias ls='exa --icons -a --group-directories-first'
-alias ll='ls -l --sort=modified'
 alias grep='grep --color=auto'
+alias ls='ls -G'
+alias ll='ls -lG'
+
+alias poetry_shell='. "$(dirname $(poetry run which python))/activate"'
+
