@@ -31,3 +31,6 @@ source ~/.alias
 source ~/.devalias
 # secret env 
 source ~/.devenv
+
+# poetry init
+source $HOME/.poetry/env
